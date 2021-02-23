@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+// import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
 const ImageGallery = ({ children }) => {
   return (
@@ -9,6 +10,14 @@ const ImageGallery = ({ children }) => {
       {children}
     </ul>
   );
+};
+
+ImageGallery.defaultProps = {
+  children: null,
+};
+
+ImageGallery.propTypes = {
+  children: PropTypes.node,
 };
 
 export default ImageGallery;

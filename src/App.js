@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import pixabayApi from './services/pixabay-api';
-import axios from 'axios';
 
 import Searchbar from './components/Searchbar/Searchbar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
@@ -75,5 +75,21 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  query: PropTypes.string.isRequired,
+  queryPage: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isModalOpen: PropTypes.bool.isRequired,
+  largeImage: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
+};
 
 export default App;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Searchbar extends Component {
   state = {
@@ -7,8 +8,8 @@ class Searchbar extends Component {
 
   changeInputValue = event => this.setState({ searchQuery: event.target.value });
 
-  onSubmit = e => {
-    e.preventDefault();
+  onSubmit = event => {
+    event.preventDefault();
     this.props.onSearchFormSubmit(this.state.searchQuery);
   };
 
@@ -34,5 +35,14 @@ class Searchbar extends Component {
     );
   }
 }
+
+Searchbar.defaultProps = {
+  searchQuery: '',
+};
+
+Searchbar.propTypes = {
+  searchQuery: PropTypes.string,
+  onSearchFormSubmit: PropTypes.func.isRequired,
+};
 
 export default Searchbar;

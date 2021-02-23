@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Modal extends Component {
   componentDidMount() {
@@ -23,5 +24,11 @@ class Modal extends Component {
     );
   }
 }
+
+Modal.propTypes = {
+  largeImage: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+};
 
 export default Modal;

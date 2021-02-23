@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ fetchImages }) => {
   return (
@@ -6,6 +7,10 @@ const Button = ({ fetchImages }) => {
       Загрузить еще
     </button>
   );
+};
+
+Button.propTypes = {
+  fetchImages: PropTypes.func.isRequired,
 };
 
 export default Button;
