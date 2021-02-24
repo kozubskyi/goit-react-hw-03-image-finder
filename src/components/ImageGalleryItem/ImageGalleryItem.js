@@ -21,7 +21,7 @@ ImageGalleryItem.defaultProps = {
 ImageGalleryItem.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       webformatURL: PropTypes.string.isRequired,
       tags: PropTypes.string.isRequired,
     }).isRequired,

@@ -39,6 +39,10 @@ class App extends Component {
           images: [...prevState.images, ...backendImages],
           queryPage: prevState.queryPage + 1,
         }));
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth',
+        });
       })
       .catch(error => console.log(error))
       .finally(() => {
@@ -76,6 +80,16 @@ class App extends Component {
   }
 }
 
+App.defaultProps = {
+  images: [],
+  query: '',
+  queryPage: 1,
+  isLoading: false,
+  isModalOpen: false,
+  largeImage: '',
+  imageAlt: '',
+};
+
 App.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
@@ -83,13 +97,13 @@ App.propTypes = {
       webformatURL: PropTypes.string.isRequired,
       tags: PropTypes.string.isRequired,
     }).isRequired,
-  ).isRequired,
-  query: PropTypes.string.isRequired,
-  queryPage: PropTypes.number.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  isModalOpen: PropTypes.bool.isRequired,
-  largeImage: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string.isRequired,
+  ),
+  query: PropTypes.string,
+  queryPage: PropTypes.number,
+  isLoading: PropTypes.bool,
+  isModalOpen: PropTypes.bool,
+  largeImage: PropTypes.string,
+  imageAlt: PropTypes.string,
 };
 
 export default App;
